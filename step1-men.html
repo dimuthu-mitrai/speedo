@@ -241,14 +241,14 @@
                                     <div class="col-lg-4 col-md-6 text-center" id="step2">
                                         <!--<div style="position: absolute; background-color:#dddddd;margin-top:-15px;height:12px;width:130px;left:20%;"></div>-->	
                                     </div>
-                                    <div class="col-lg-4 col-md-6 text-center">
+                                    <div class="col-lg-4 col-md-6 text-center" id="step3">
                                         <!--<div style="position: absolute; background-color:#dddddd;margin-top:-15px;height:12px;width:130px;left:20%;"></div>-->	
                                     </div>
                                 </div>
                             </section>
                         </div>
-                        
-                        <div class="row">
+                        <!--step 1-->
+                        <div class="row" id="jammersNbriefs">
                             <div class="col-lg-8" style="cursor:pointer; padding-right:0px; padding-left:0px;" onclick="show_jammers();">
                                 <span class="col-xs-12" align="center" style="position:absolute; top:40%; left:0; width:100%; height:100%; color:#fff; font-size:22px;">Jammers</span>
                                 <img src="img/jammers.jpg" alt="..." class="img-thumbnail">
@@ -259,19 +259,20 @@
                             </div>
                         </div>
                         
-                        <div class="row">
+                        <div class="row" id="aquashorts">
                             <div class="col-lg-4" style="cursor: pointer; padding-right:0px; padding-left:0px;">
                                 <span class="col-xs-12" align="center" style="position:absolute; top:40%; left:0; width:100%; height:100%; color:#fff; font-size:22px;">Aquashorts</span>
                                 <img src="img/aquashort.jpg" alt="..." class="img-thumbnail">
                             </div>
                         </div>
                         
+                        <!--step 2-->
                         <div id="menJammers" class="row" style="padding-top:10px;display:none;">
                             <div class="col-lg-4" style="cursor: pointer; padding-right:0px; padding-left:0px;">
                                 <span class="col-xs-12" align="center" style="position:absolute; top:40%; left:0; width:100%; height:100%; color:#fff; font-size:22px;">Fastskin</span>
                                 <img src="img/fastskin.jpg" alt="..." class="img-thumbnail">
                             </div>
-                            <div class="col-lg-4" style="cursor: pointer; padding-right:0px; padding-left:0px;">
+                            <div class="col-lg-4" style="cursor: pointer; padding-right:0px; padding-left:0px;" onclick="show_step3();">
                                 <span class="col-xs-12" align="center" style="position:absolute; top:40%; left:0; width:100%; height:100%; color:#fff; font-size:22px;">Standard</span>
                                 <img src="img/standard.jpg" alt="..." class="img-thumbnail">
                             </div>
@@ -280,17 +281,421 @@
                                 <img src="img/speedofit.jpg" alt="..." class="img-thumbnail">
                             </div>
                         </div>
+                        
+                        <!--step 3-->
+                        
+        <style>
+		.pallets{ background-color: #f9f9f9; width: 280px; min-height: 400px; border: 1px solid #bababa; }
+		.tabicons { float: left; box-sizing: border-box; margin: 5px 1px; padding: 10px; cursor: pointer; }
+		.pname { width: 210px; float:left; text-align: left; }
+		.spacer { clear: both; }
+		.panel_wrapper { padding: 14px; border-bottom: 1px solid #bababa; cursor: pointer; }
+		.panel_wrapper_top { border-top: 1px solid #bababa; margin-top: 10px; }
+		.panel_wrapper img { float: left; }
+		.colour_picker { width: 56px; height: 57px; float: left; margin: 5px; }
+		.cpickers {padding-top: 10px; }
+		.cbtn { padding: 8px; width: 135px; float:left; margin: 10px 10px 0 0; cursor: pointer; }
+		.addtobag { padding: 8px; border: 1px solid #bababa; width: 280px; margin-top: 10px; cursor: pointer; }
+		.cbtn:hover { background-color: #757575; }
+		.addtobag:hover { font-weight: bold; }
+		.left_panel:hover { background-color:#f9f9f9; }
+		.btn_step2 { background-color:#bababa; margin-top: 30px; display: inline-block; float: none }
+		.btn_step2:hover { color: #ffffff; }
+		#trim img { width: 80%; margin-top: 10px; }
+		a { color: #333; }
+		a:hover { text-decoration: none; color: #333; }
+		form label { float: left; margin-left: 20px; width: 68px; }
+		.form_controller { margin-bottom: 10px; }
+		.form_controller select { min-width: 151px; }	
+		.gen_padding { padding: 14px; }
+	</style>
+        
+    <!--<div id="about">-->
+		<div class="row" style="display:none;" id="step3-widget">
+<!--			<div class="col-lg-2 col-md-6 text-center"></div>-->
+			<div id="sec_pallet" class="col-lg-6 col-md-6 text-center">  
+				<div id="org_360">
+                                    <a class="Magic360" href="img/men-running.jpg" data-magic360-options="filename: blue-{col}.png;autospin:off;large-filename: blue-{col}.png;columns:32;fullscreen:false;">
+                                        <img src="img/men-running.jpg"/></a>
+				</div>
+				<!--<div class="left_panel" style="position: absolute; top: 0; left: 74px; opacity: 0.13; width: 295px; height: 82px;" ></div>-->
+<!--				<img id="f_view" class="panel_view" style="display: none;" src="img/blue/blue-01.png" />
+				<img id="l_view" class="panel_view" style="display: none;" src="img/blue/blue-24.png" />
+				<img id="r_view" class="panel_view" style="display: none;" src="img/blue/blue-11.png" />
+				<img id="b_view" class="panel_view" style="display: none;" src="img/blue/blue-18.png" />
+				<img id="f_1_p_view" class="panel_view" style="display: none;" src="img/cus_views/f-1.png" />
+				<img id="f_l_p_view" class="panel_view" style="display: none;" src="img/cus_views/f-l.png" />
+				<img id="f_lc_p_view" class="panel_view" style="display: none;" src="img/cus_views/f-lc.png" />
+				<img id="f_rc_p_view" class="panel_view" style="display: none;" src="img/cus_views/f-rc.png" />
+				<img id="f_r_p_view" class="panel_view" style="display: none;" src="img/cus_views/f-r.png" />
+				<img id="b_1_p_view" class="panel_view" style="display: none;" src="img/cus_views/b-1.png" />
+				<img id="final_v" class="panel_view" style="display: none;" src="img/cus_views/front.png" />
+				<img id="text_v" class="panel_view" style="display: none;" src="img/customized/cus-12.png" />				
+			
+				<div class="text-center"><div class="cbtn btn_step2">SHARE</div><div class="cbtn btn_step2">SAVE</div>
+					<div class="spacer"></div>
+				</div>-->
+			</div>			
+			<script>
+				function loadpanel(id,pid,paneltoggle) {
+					$('html, body').animate({
+						scrollTop: $("#sec_pallet").offset().top - 50
+					}, 1000);				
+					//$('#org_360').hide();
+					$(".panel_view").each(function( index ) {
+					  $(this).hide();
+					});
+					
+					if (paneltoggle === undefined || paneltoggle === null) {
+						$("#" + id).show();
+						$(".p_content").each(function( index ) {
+						  $(this).hide();
+						});
+						$('#' + pid).slideToggle();
+					}
+					else
+						$("#" + id).fadeIn();
+				}
+				function load360() {
+					$(".panel_view").each(function( index ) {
+					  $(this).hide();
+					});				
+					$('#org_360').show();
+				}		
+			</script>
+			<div class="col-lg-6 col-md-6 text-center">
+				<div class="pallets">
+					<div class="headings">
+						<div class="tabicons" onclick="tabSelect('colour')">
+							<img alt="Colour" title="Colour" src="img/icons/icon-color.png"/>
+						</div>
+						<div class="tabicons" onclick="tabSelect('pattern')">
+							<img  alt="Pattern" title="Pattern" src="img/icons/icon-pattern.png"/>
+						</div>
+						<!--<div class="tabicons" onclick="tabSelect('trim')">
+							<img alt="Trim" title="Trim" src="img/icons/icon-trim.png"/>
+						</div>						-->
+						<div class="tabicons" onclick="tabSelect('text')">
+							<img alt="Text" title="Text" src="img/icons/icon-text.png"/>
+						</div>
+						<div class="tabicons" onclick="tabSelect('size')">
+							<img alt="Size" title="Size" src="img/icons/icon-size.png"/>
+						</div>
+						<div class="spacer"></div>
+					</div>
+					<div id="colour" class="tabs">
+						<div class="panel_wrapper lp" onclick="loadpanel('l_view', 'lp_colours');">
+							<div class="pname">FRONT</div><img class src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+							<div id="lp_colours" class="cpickers p_content" style="display:none">
+								<div class="colour_picker" style="background-color: #680000"></div>
+								<div class="colour_picker" style="background-color: #700000"></div>
+								<div class="colour_picker" style="background-color: #780000"></div>
+								<div class="colour_picker" style="background-color: #800000"></div>
+								<div class="colour_picker" style="background-color: #880000"></div>
+								<div class="colour_picker" style="background-color: #900000"></div>
+								<div class="colour_picker" style="background-color: #980000"></div>
+								<div class="colour_picker" style="background-color: #A00000"></div>
+								<div class="spacer"></div>
+							</div>
+						</div>
+						<div class="panel_wrapper rp" onclick="loadpanel('r_view', 'rp_colours');">
+							<div class="pname">CENTER</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+							<div id="rp_colours" class="cpickers p_content" style="display:none">
+								<div class="colour_picker" style="background-color: #680000"></div>
+								<div class="colour_picker" style="background-color: #700000"></div>
+								<div class="colour_picker" style="background-color: #780000"></div>
+								<div class="colour_picker" style="background-color: #800000"></div>
+								<div class="colour_picker" style="background-color: #880000"></div>
+								<div class="colour_picker" style="background-color: #900000"></div>
+								<div class="colour_picker" style="background-color: #980000"></div>
+								<div class="colour_picker" style="background-color: #A00000"></div>
+								<div class="spacer"></div>							
+							</div>
+						</div>
+						<div class="panel_wrapper cf" onclick="loadpanel('f_view', 'cf_colours');">
+							<div class="pname" style="$('#org_360').hide();$('#f_view').show();">BACK</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+							<div id="cf_colours" class="cpickers p_content" style="display:none">
+								<div class="colour_picker" style="background-color: #680000"></div>
+								<div class="colour_picker" style="background-color: #700000"></div>
+								<div class="colour_picker" style="background-color: #780000"></div>
+								<div class="colour_picker" style="background-color: #800000"></div>
+								<div class="colour_picker" style="background-color: #880000"></div>
+								<div class="colour_picker" style="background-color: #900000"></div>
+								<div class="colour_picker" style="background-color: #980000"></div>
+								<div class="colour_picker" style="background-color: #A00000"></div>
+								<div class="spacer"></div>							
+							</div>
+						</div>
+						<!--<div class="panel_wrapper cb" onclick="loadpanel('b_view','cb_colours');">
+							<div class="pname">CENTER BACK</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+							<div id="cb_colours" class="cpickers p_content" style="display:none;">
+								<div class="colour_picker" style="background-color: #680000"></div>
+								<div class="colour_picker" style="background-color: #700000"></div>
+								<div class="colour_picker" style="background-color: #780000"></div>
+								<div class="colour_picker" style="background-color: #800000"></div>
+								<div class="colour_picker" style="background-color: #880000"></div>
+								<div class="colour_picker" style="background-color: #900000"></div>
+								<div class="colour_picker" style="background-color: #980000"></div>
+								<div class="colour_picker" style="background-color: #A00000"></div>
+								<div class="spacer"></div>							
+							</div>
+						</div>-->
+						<div class="panel_wrapper cb">
+							<div style="float:none;text-align:center"><a href="step2 - customized.html">YOUR CHANGES - 360 VIEW</a></div>
+							<div class="spacer"></div>
+						</div>						
+					</div>
+					<div id="pattern" class="tabs" style="display:none;">
+						<div class="panel_wrapper lp" onclick="loadpanel('f_1_p_view','lp_pattern');">
+							<div class="pname">FRONT</div><img class src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+						</div>
+						<div id="lp_pattern" class="cpickers p_content gen_padding" style="display:none">
+                            <div class="colour_picker"><img src="img/icons/pattern 2.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 3.png"/></div>
+							<div class="colour_picker"><img onclick="loadpanel('f_l_p_view','lp_pattern', false);" src="img/icons/pattern 1.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 4.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 5.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 6.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 7.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 8.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 11.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 12.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 13.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 14.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 15.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 16.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 18.png"/></div>
+                           
+                            
+							<div class="spacer"></div>
+                             <label style="margin-left:40px; font-weight:300;">View more >></label>	
+						</div>						
+						<div class="panel_wrapper rp" onclick="loadpanel('f_l_p_view','cf_pattern');">
+							<div class="pname">CENTER</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+						</div>
+						<div id="cf_pattern" class="cpickers p_content gen_padding" style="display:none">
+                        	<div class="colour_picker" onclick="loadpanel('f_lc_p_view','cf_pattern', false);" style="border: 5px solid #b6b7bb;"><img src="img/icons/pattern 1.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 2.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 3.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 4.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 5.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 6.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 7.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 8.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 11.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 12.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 13.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 14.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 15.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 16.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 18.png"/></div>
+                           
+							<div class="spacer"></div>
+                             <label style="margin-left:40px; font-weight:300;">View more >></label>							
+						</div>						
+						<!--<div class="panel_wrapper cf" onclick="loadpanel('f_lc_p_view','cr_pattern');">
+							<div class="pname">CENTER RIGHT</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+						</div>
+						<div id="cr_pattern" class="cpickers p_content gen_padding" style="display:none">
+							<div class="colour_picker" onclick="loadpanel('f_rc_p_view','cr_pattern', false);"><img src="img/icons/pattern 1.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 2.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 3.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 4.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 5.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 6.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 7.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 8.png"/></div>
+							<div class="spacer"></div>							
+						</div>	-->					
+						<!--<div class="panel_wrapper cf" onclick="loadpanel('f_rc_p_view','r_pattern');">
+							<div class="pname">RIGHT</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+						</div>
+						<div id="r_pattern" class="cpickers p_content gen_padding" style="display:none">
+							<div class="colour_picker" onclick="loadpanel('f_r_p_view','r_pattern', false);"><img src="img/icons/pattern 1.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 2.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 3.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 4.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 5.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 6.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 7.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 8.png"/></div>
+							<div class="spacer"></div>							
+						</div>				-->		
+						<div class="panel_wrapper cb" onclick="loadpanel('b_view','b_pattern');" style="border:none;">
+							<div class="pname">BACK</div>
+							<img src="img/icons/down-arrow.png">
+							<div class="spacer"></div>
+						</div>
+						<div id="b_pattern" class="cpickers p_content gen_padding" style="display:none;">
+                            <div class="colour_picker" onclick="loadpanel('b_1_p_view','b_pattern', false);" style="border: 5px solid  #b6b7bb;"><img src="img/icons/pattern 1.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 2.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 3.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 4.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 5.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 6.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 7.png"/></div>
+							<div class="colour_picker"><img src="img/icons/pattern 8.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 11.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 12.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 13.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 14.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 15.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 16.png"/></div>
+                            <div class="colour_picker"><img src="img/icons/pattern 18.png"/></div>
+							<div class="spacer"></div>	
+                            <label style="margin-left:40px; font-weight:300;">View more >></label>							
+						</div>	
+						<div class="panel_wrapper cb">
+							<div style="float:none;text-align:center"><a href="step2 - customized.html">YOUR CHANGES - 360 VIEW</a></div>
+							<div class="spacer"></div>
+						</div>								
+					</div>
+					<!--<div id="trim" class="tabs" style="display:none;">
+						<label>Select your trim</label>
+						<img onclick="loadpanel('final_v','lp_pattern', false);" src="img/trims/1.png" />
+						<img  src="img/trims/2.png" />
+						<img src="img/trims/3.png" />
+                        <img src="img/trims/5.png" />
+                         <img src="img/trims/6.png" />
+                        
+					</div>-->					
+					<div id="text" class="tabs" style="display:none;">
+						<form>
+						<label>Your Text</label> 
+						<div class="form_controller">
+							<input type="text" style="width:151px" />
+						</div>
+						<label>Font Type</label> 
+						<div class="form_controller">
+							<select>
+								<option>Times New Roman</option>
+								<option>Arial</option>
+                                <option>Century Gothic</option>
+                                <option>Calibri</option>
+                                <option>Comic Sans MS</option>
+                                <option>Vtks good luck for you</option>
+                                <option>Lucida Sans</option>
+							</select>
+						</div>
+						<label>Font size</label> 
+						<div class="form_controller">
+							<select>
+								<option>12</option>
+								<option>14</option>
+								<option>16</option>
+								<option>18</option>
+								<option>20</option>
+								<option>22</option>							
+							</select>
+						</div><br />
+						<button type="button" onclick="loadpanel('text_v','lp_pattern', false);">PREVIEW</button>
+						<div class="panel_wrapper panel_wrapper_top cb">
+							<div style="float:none;text-align:center"><a href="step2 - customized.html">YOUR CHANGES - 360 VIEW</a></div>
+							<div class="spacer"></div>
+						</div>	
+					</div>
+					<div id="size" class="tabs" style="display:none;">
+						<div id="cb_pattern" class="cpickers" style="padding: 10px">
+							<div class="colour_picker"><img src="img/sizes/1.png"/></div>
+							<div class="colour_picker"><img src="img/sizes/2.png"/></div>
+							<div class="colour_picker"><img src="img/sizes/3.png"/></div>
+							<div class="colour_picker"><img src="img/sizes/4.png"/></div>
+							<div class="colour_picker"><img src="img/sizes/5.png"/></div>
+							<div class="colour_picker"><img src="img/sizes/6.png"/></div>
+							<div class="spacer"></div>							
+						</div>
+					</div>
+				</div>
+				<div class="cbtn bg-dark" onclick="tabButton('pre')">< &nbsp; Previous </div><div class="cbtn bg-dark" onclick="tabButton('nxt')"> Next &nbsp; ></div>
+				<div class="spacer"></div>
+				<div class="addtobag"><a href="step3.html">ADD TO BAG</a></div>					
+			</div>		
+		</div>	
+    <!--</div>-->
+        
+        
+        
+        
+                        
                     </div>
                 </div>
                 <div class="col-lg-2"></div>
             </div>
         </div>
         
+        
+        
+        
+        
+        <script>
+	function tabSelect(id) {
+		$( ".tabs" ).each(function() {
+		  $(this).hide();
+		});
+		$("#"+id).slideDown();
+			return false
+	}
+	function tabButton(btn) {
+		if(btn == "nxt") {
+			$(".tabs").each(function() {
+				if($(this).is(':visible')) {
+					tg_id = $(this).next().attr('id');
+					if (typeof(tg_id) == 'undefined')
+						tabSelect('size');
+					else
+						tabSelect(tg_id);
+					return false;
+				}
+			});
+		}
+		else if(btn == "pre") {
+			$(".tabs").each(function() {
+				if($(this).is(':visible')) {
+					tg_id = $(this).prev().attr('id');
+					if (typeof(tg_id) == 'undefined')
+						tabSelect('colour');
+					else
+						tabSelect(tg_id);
+					return false;
+				}
+			});
+		}
+	}
+	</script>
+        
+        
+        
+        
+        
+        
         <script>	
             function show_jammers() {
                 $("#menJammers").css({'display':'block'});
                 $("#step1").html('<div></div>');
                 $("#step2").append('<div style="position: absolute; background-color:#dddddd;margin-top:-15px;height:12px;width:130px;left:20%;"></div>');
+            }	
+            function show_step3() {
+                $("#menJammers").css({'display':'none'});
+                $("#jammersNbriefs").css({'display':'none'});
+                $("#aquashorts").css({'display':'none'});
+                $("#step3-widget").css({'display':'block'});
+                $("#step1").html('<div></div>');
+                $("#step2").html('<div></div>');
+                $("#step3").append('<div style="position: absolute; background-color:#dddddd;margin-top:-15px;height:12px;width:130px;left:20%;"></div>');
             }
         </script>
     
